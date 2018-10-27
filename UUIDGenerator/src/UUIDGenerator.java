@@ -16,7 +16,7 @@ public class UUIDGenerator extends javax.swing.JFrame {
                               
     private void initComponents() {
 
-        TextFiled = new javax.swing.JTextField();
+        TextField = new javax.swing.JTextField();
         GenBtn = new javax.swing.JButton();
         ClrBtn = new javax.swing.JButton();
         String UUID_GENERATOR = "UUID Generator";
@@ -26,14 +26,14 @@ public class UUIDGenerator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setTitle(UUID_GENERATOR);
 
-        TextFiled.addActionListener(new java.awt.event.ActionListener() {
+        TextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextFiledActionPerformed(evt);
+                TextFieldActionPerformed(evt);
             }
         });
-        TextFiled.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        TextField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                TextFiledPropertyChange(evt);
+                TextFieldPropertyChange(evt);
             }
         });
 
@@ -64,14 +64,14 @@ public class UUIDGenerator extends javax.swing.JFrame {
                         .addComponent(ClrBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
-                        .addComponent(TextFiled, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
-                .addComponent(TextFiled, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GenBtn)
@@ -83,21 +83,22 @@ public class UUIDGenerator extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }                       
 
-    private void TextFiledActionPerformed(java.awt.event.ActionEvent evt) {                                            
-       TextFiled.setText("");
+    private void TextFieldActionPerformed(java.awt.event.ActionEvent evt) {                                            
+       TextField.setText("");
     }                                           
     
     private void ClrBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
-       TextFiled.setText("");
+       TextField.setText("");
     }                                        
 
-    private void TextFiledPropertyChange(java.beans.PropertyChangeEvent evt) {                                           
+    private void TextFieldPropertyChange(java.beans.PropertyChangeEvent evt) {                                           
         
     }                                          
 
-    private void GenBtnActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void GenBtnActionPerformed(java.awt.event.ActionEvent evt) { 
+    	TextField.setHorizontalAlignment(TextField.CENTER);
         String suuid = UUID.randomUUID().toString();
-        TextFiled.setText(suuid);
+        TextField.setText(suuid);
     }                                        
 
     
@@ -111,5 +112,5 @@ public class UUIDGenerator extends javax.swing.JFrame {
                  
     private javax.swing.JButton GenBtn;
     private javax.swing.JButton ClrBtn;
-    private javax.swing.JTextField TextFiled;       
+    private javax.swing.JTextField TextField;       
 }
